@@ -20,12 +20,12 @@ On completion, the data gets console.log and a 'Thank you!' message gets render 
 
 ## Stack
 
-Next.js
-Typescript
-Tailwind
-React Hook Form
-Jest
-React Testing Library
+Next.js,
+Typescript,
+Tailwind,
+React Hook Form,
+Jest,
+React Testing Library,
 
 ## React Hook Form
 
