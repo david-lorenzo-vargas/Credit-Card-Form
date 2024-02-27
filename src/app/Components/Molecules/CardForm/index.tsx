@@ -1,7 +1,9 @@
+import { ReactElement } from "react";
+
 import Button from "../../Atoms/Button";
 import Input from "../../Atoms/Input";
 
-const CardForm = () => {
+const CardForm = (): ReactElement => {
   return (
     <form>
       <div>
