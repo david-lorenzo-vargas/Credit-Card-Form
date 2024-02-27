@@ -43,7 +43,7 @@ interface Props {
   rounded?: string;
   border?: string;
   onClick?: () => void;
-  disabled: boolean;
+  disabled?: boolean;
   type: 'submit' | 'button';
   id: string;
 }

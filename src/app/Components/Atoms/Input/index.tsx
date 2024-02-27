@@ -1,10 +1,12 @@
 import { HTMLInputTypeAttribute, ReactElement } from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 const Input = ({
   placeholder,
   inputName,
   label,
   type ='text',
+  register,
 }: Props): ReactElement => {
   return (
     <div>
@@ -18,6 +20,7 @@ const Input = ({
         placeholder={placeholder}
         name={inputName}
         type={type}
+        {...register}
       />
     </div>
   );
@@ -27,7 +30,8 @@ interface Props {
   placeholder: string;
   inputName: string;
   label: string;
-  type?: HTMLInputTypeAttribute
+  type?: HTMLInputTypeAttribute,
+  register?: UseFormRegisterReturn,
 }
 
 export default Input;
