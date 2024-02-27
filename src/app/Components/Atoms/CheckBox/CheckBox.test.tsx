@@ -4,11 +4,10 @@ import CheckBox from '.';
 import { beforeEach, describe } from 'node:test';
 
 const mockOnClick = jest.fn();
-const boxName = 'label';
 const boxId = 'age';
 
-const renderCheckBox = (checked = true) =>
-  render(<CheckBox boxName={boxName} checked={checked} boxId={boxId} onClick={() => mockOnClick()} />);
+const renderCheckBox = (checked = true, label?: string) =>
+  render(<CheckBox label={label} checked={checked} boxId={boxId} onClick={() => mockOnClick()} />);
 
 describe('checkBox', () => {
   beforeEach(() => {
@@ -17,8 +16,17 @@ describe('checkBox', () => {
 
   test('should render', () => {
     renderCheckBox();
-    expect(screen.getByText(boxName)).toBeInTheDocument();
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
+  });
+
+  test('label should render if label is passed', () => {
+    renderCheckBox(false, 'label');
+    expect(screen.getByText('label')).toBeInTheDocument();
+  });
+
+  test('label should not render if label is not passed', () => {
+    renderCheckBox();
+    expect(screen.queryByText('label')).not.toBeInTheDocument();
   });
 
   test('checkBox should be checked when checked prop is true', () => {
