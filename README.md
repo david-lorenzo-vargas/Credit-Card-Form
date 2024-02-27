@@ -13,9 +13,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Description
 
 Simple form for gathering card details from user. Along the user typing the card details get updated.
-<br>
+<br><br>
 All the fields arequired so the button doesnt get enabled until all the fields are filled and by matching the correct validation.
-<br>
+<br><br>
 On completion, the data gets console.log and a 'Thank you!' message gets render together with a 'Reset' button that resets all the form information.
 
 ## Stack
