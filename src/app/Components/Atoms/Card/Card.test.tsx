@@ -3,15 +3,14 @@ import { beforeEach, describe } from 'node:test';
 
 import Card from '.';
 
-const cardNumber = '123';
 const nameOnCard = 'ABC';
 const expireMonth = '01';
 const expireYear = '1234';
 const cvv = '123';
 
-const renderCard = () =>
+const renderCard = (cardNumber?: string) =>
   render(<Card
-    cardNumber={cardNumber}
+    cardNumber={cardNumber ?? ''}
     nameOnCard={nameOnCard}
     expireMonth={expireMonth}
     expireYear={expireYear}
@@ -21,11 +20,6 @@ const renderCard = () =>
 describe('button', () => {
   beforeEach(() => {
     jest.resetAllMocks();
-  });
-
-  test('should render card number', () => {
-    renderCard();
-    expect(screen.getByText(cardNumber)).toBeInTheDocument();
   });
 
   test('should render card name', () => {
@@ -41,5 +35,15 @@ describe('button', () => {
   test('should render card cvv', () => {
     renderCard();
     expect(screen.getByText(cvv)).toBeInTheDocument();
+  });
+
+  test('if the component does not receive cardNumer, it should render 16 X', () => {
+    renderCard();
+    expect(screen.getByText('XXXXXXXXXXXXXXXX')).toBeInTheDocument();
+  });
+
+  test('if the component receives cardNumer, it should replace the corresponding X', () => {
+    renderCard('123');
+    expect(screen.getByText('123XXXXXXXXXXXXX')).toBeInTheDocument();
   });
 });
