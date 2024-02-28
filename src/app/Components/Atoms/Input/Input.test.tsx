@@ -5,7 +5,7 @@ import { beforeEach, describe } from 'node:test';
 import { HTMLInputTypeAttribute } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-const mockOnClick = jest.fn();
+const mockOnChange = jest.fn();
 
 const placeholder = 'placeHolder';
 const inputName = 'inputName';
@@ -49,11 +49,9 @@ describe('input', () => {
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument();
   });
 
-  test('should call onClick when chexkBox is clicked', async () => {
+  test('should call onChange when typing', async () => {
     renderInput();
-    fireEvent.click(screen.getByRole('checkbox'));
-    await waitFor(() => {
-      expect(mockOnClick).toHaveBeenCalledTimes(1);
-    });
+    fireEvent.change(screen.getByRole('textbox'), {target: {value: 'aaa'}});
+    expect(screen.getByRole('textbox')).toHaveValue('aaa');
   });
 });
