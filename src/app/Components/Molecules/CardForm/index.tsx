@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactElement, useCallback, useEffect } from "react";
+import { ReactElement, useCallback, useEffect, useState } from "react";
 import {useForm, SubmitHandler} from "react-hook-form";
 
 import Button from "../../Atoms/Button";
@@ -15,6 +15,7 @@ const CardForm = (): ReactElement => {
     formState,
     watch,
     reset,
+    setValue,
   } = useForm<FormFields>({
     defaultValues: {
       cardNumber: "",
@@ -26,9 +27,48 @@ const CardForm = (): ReactElement => {
     }
   });
 
+  const [rememberMe, setRememberMe] = useState<boolean>(false);
+  const [areStoredDetails, setAreStoredDetails] = useState<boolean>(false);
+  const [removeMyDetails, setRemoveMyDetails] = useState<boolean>(false);
+
+  useEffect(() => {
+    const cardDetailsStorage = localStorage.getItem('cardDetails');
+
+    if (cardDetailsStorage) {
+      const parsedDetails: FormFields = JSON.parse(cardDetailsStorage);
+      setValue('cardNumber', parsedDetails.cardNumber);
+      setValue('cardName', parsedDetails.cardName);
+      setValue('cardMonth', parsedDetails.cardMonth);
+      setValue('cardYear', parsedDetails.cardYear);
+      setRememberMe(() => true);
+      setAreStoredDetails(() => true);
+    }
+  }, []);
+
+  const onRememberMe = useCallback(() => {
+    setRememberMe((r) => !r);
+  }, []);
+
+  const onRemoveMyDetails = useCallback(() => {
+    setRemoveMyDetails((d) => !d);
+    setRememberMe(() => false);
+  }, []);
+
   const onSubmit: SubmitHandler<FormFields> = useCallback((data) => {
+    if (rememberMe) {
+      localStorage.removeItem('cardDetails');
+      localStorage.setItem('cardDetails',JSON.stringify(data));
+    }
+
+    if (removeMyDetails) {
+      localStorage.clear();
+    }
+
     console.log({data});
-  },[]);
+    setAreStoredDetails(() => false);
+    setRememberMe(() => false);
+    setRemoveMyDetails(() => false);
+  }, [rememberMe, removeMyDetails]);
 
   return (
     <>
@@ -141,6 +181,34 @@ const CardForm = (): ReactElement => {
                     </span>
                   </div>
                 </div>
+                <div className="flex flex-row items-center mb-3">
+                  <CheckBox
+                    boxId="rememberMe"
+                    size="h-5 w-5"
+                    checked={rememberMe}
+                    onClick={onRememberMe}
+                  />
+                  <div className="ml-3">
+                    <span>
+                      Save my Card Details
+                    </span>
+                  </div>
+                </div>
+                {areStoredDetails && (
+                  <div className="flex flex-row items-center mb-3">
+                    <CheckBox
+                      boxId="removeMyDetails"
+                      size="h-5 w-5"
+                      checked={removeMyDetails}
+                      onClick={onRemoveMyDetails}
+                    />
+                    <div className="ml-3">
+                      <span>
+                        Remove my Card Details
+                      </span>
+                    </div>
+                  </div>
+                )}
                 <Button
                   type="submit"
                   id="sendFormButton"
