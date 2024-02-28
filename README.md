@@ -35,6 +35,16 @@ React Testing Library,
 
 ## React Hook Form
 
+React Hook Form used for managinf the form. All the input are wrapped in a `<form>` tag and registered to the form by passing ´register´ as props. Atom components receive register prop and it is spead to have the input registered in the form. Button component doesnt accept onClick as it receives ´type='submit'´ and the submit is handle by passing `onSubmit={handleSubmit(submit)}` that comes from `useForm`.
+<br><br>
+Validation has been implemented via `register` by passing an object as a second argument where all the inputs are required and they have an specific pattern they need to full fill in order to be valid eg: `register("inputName", {required: true, pattern: /regex patter that needs to full fill/})`.
+<br><br>
+For enabling the button we pass `isValid` that comes from `formState` as prop to the button component.
+<br><br>
+For rendering the values typed in the card we use `watch` method that access the input value as follow `watch("inputName")`.
+<br><br>
+Once the form is validated and the submit button gets clicked, we check if the form has been submited by using `isSubmited` cominf from `formSate` and if `isSubmited===true` a 'Thank you!' text gets rendered together with a 'Reset button' that hanldes `reset` method for reseting the form state
+
 ## Atomic approach
 
 Atomic approach has been used for structuring and ordering the componets separated in 'atoms', 'molecules' and 'organisms'.
