@@ -43,7 +43,13 @@ For enabling the button we pass `isValid` that comes from `formState` as prop to
 <br><br>
 For rendering the values typed in the card we use `watch` method that access the input value as follow `watch("inputName")`.
 <br><br>
-Once the form is validated and the submit button gets clicked, we check if the form has been submited by using `isSubmited` cominf from `formSate` and if `isSubmited===true` a 'Thank you!' text gets rendered together with a 'Reset button' that hanldes `reset` method for reseting the form state
+Once the form is validated and the submit button gets clicked, we check if the form has been submited by using `isSubmited` cominf from `formSate` and if `isSubmited===true` a 'Thank you!' text gets rendered together with a 'Reset button' that hanldes `reset` method for reseting the form state.
+
+## Local Storage
+
+A remind me button is provided to the user, if clicked the all the form fields get stored in the Local Storage and when the user comes back, the form fields get filled with the information stored.
+<br><br>
+If information has been stored, the user has a forget my information button that will remove all the information stored in the Local Storage.
 
 ## Atomic approach
 
