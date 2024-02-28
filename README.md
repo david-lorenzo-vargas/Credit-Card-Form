@@ -47,7 +47,7 @@ Once the form is validated and the submit button gets clicked, we check if the f
 
 ## Local Storage
 
-A remind me button is provided to the user, if clicked the all the form fields get stored in the Local Storage and when the user comes back, the form fields get filled with the information stored.
+A remind me button is provided to the user, if clicked all the information from the form fields get stored in the Local Storage and when the user comes back, the form fields get filled with the information stored.
 <br><br>
 If information has been stored, the user has a forget my information button that will remove all the information stored in the Local Storage.
 
