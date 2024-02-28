@@ -54,4 +54,16 @@ describe('input', () => {
     fireEvent.change(screen.getByRole('textbox'), {target: {value: 'aaa'}});
     expect(screen.getByRole('textbox')).toHaveValue('aaa');
   });
+
+  test('if type number is passed as props should render a number input and render numbers as value', () => {
+    renderInput('number');
+    fireEvent.change(screen.getByRole('spinbutton'), {target: {value: 1}});
+    expect(screen.getByRole('spinbutton')).toHaveValue(1);
+  });
+
+  test('if type number is passed as props should render a number input and accept only numbers as value', () => {
+    renderInput('number');
+    fireEvent.change(screen.getByRole('spinbutton'), {target: {value: 'a'}});
+    expect(screen.getByRole('spinbutton')).toHaveValue(null);
+  });
 });
