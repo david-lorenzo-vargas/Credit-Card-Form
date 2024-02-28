@@ -49,7 +49,7 @@ describe('input', () => {
     expect(screen.getByPlaceholderText(placeholder)).toBeInTheDocument();
   });
 
-  test('should call onChange when typing', async () => {
+  test('should call onChange and value types needs to be displayes', () => {
     renderInput();
     fireEvent.change(screen.getByRole('textbox'), {target: {value: 'aaa'}});
     expect(screen.getByRole('textbox')).toHaveValue('aaa');
