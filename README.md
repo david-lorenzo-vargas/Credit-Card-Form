@@ -26,12 +26,15 @@ On completion, the data gets console.log and a 'Thank you!' message gets render 
 <br><br>
 
 <h3>Card form</h3>
+
 ![Card-Form](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/e4f242b7-4240-4280-83e2-dd7b0174e976.gif)
 <br><br>
 <h3>Card form setting the local storage</h3>
+
 ![Card-Form-savedDetails](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/7baf6dc3-6023-4dfc-b2aa-34f39d3725fd.gif)
 <br><br>
 <h3>Card form removing the stored details</h3>
+
 ![Card-Form-reset](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/0ca75e09-2a82-4c19-848f-576ffef368e5.gif)
 
 
