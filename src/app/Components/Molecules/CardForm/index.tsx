@@ -48,15 +48,15 @@ const CardForm = (): ReactElement => {
   }, []);
 
   const onRememberMe = useCallback(() => {
-    setRememberMe((r) => !r);
+    setRememberMe((r: boolean) => !r);
   }, []);
 
   const onRemoveMyDetails = useCallback(() => {
-    setRemoveMyDetails((d) => !d);
+    setRemoveMyDetails((d: boolean) => !d);
     setRememberMe(() => false);
   }, []);
 
-  const onSubmit: SubmitHandler<FormFields> = useCallback((data) => {
+  const onSubmit: SubmitHandler<FormFields> = useCallback((data: FormFields) => {
     if (rememberMe) {
       localStorage.removeItem('cardDetails');
       localStorage.setItem('cardDetails',JSON.stringify(data));
