@@ -1,3 +1,14 @@
+# Credir Card Form
+
+## Table of Contents
+1. [Getting Started](#getting-started)
+2. [Description](#description)
+3. [Stack](#stack)
+4. [React Hook Form](#react-hook-form)
+5. [Local Storage](#local-storage)
+6. [Atomic approach](#atomic-aproach)
+7. [Testing](#testing)
+
 ## Getting Started
 
 First, install node modules:
