@@ -13,6 +13,9 @@ const config: Config = {
         acceptGreen: '#2cb519',
         lightGray: '#d9d9d9',
       },
+      spacing: {
+        "85P": '85%'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

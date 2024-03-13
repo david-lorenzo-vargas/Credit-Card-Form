@@ -92,7 +92,7 @@ const CardForm = (): ReactElement => {
         </div>
       ) : (
         <>
-          <div className="w-1/2 mb-5">
+          <div className="w-85P md:w-1/2 mb-5">
             <Card
               cardNumber={watch("cardNumber")}
               nameOnCard={watch("cardName")}
@@ -101,7 +101,7 @@ const CardForm = (): ReactElement => {
               cvv={watch("cardCvv")}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-85P md:w-1/2">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <div className="mb-1">
