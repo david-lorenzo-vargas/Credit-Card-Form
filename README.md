@@ -9,6 +9,7 @@
 6. [Atomic approach](#atomic-approach)
 7. [Testing](#testing)
 8. [Accessibility](#accessibility)
+9. [Responsiveness](#responsiveness)
 
 ## Getting Started
 
@@ -93,9 +94,24 @@ For running tests: `npm run test`
 
 ## Accessibility
 
-HTML native tags have been used as well as WAI-ARIA roles and aria labels for acceissibility. This would help web reading tools to navigate through the form.
+Native HTML tags have been used as well as WAI-ARIA roles and aria labels for acceissibility. This would help web reading tools to navigate through the form.
 
 An 93 overall scored achieved in Lighthouse tool
 
 ![Screenshot 2024-03-13 at 15 45 59](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/a442cdf3-adec-4ded-aa5b-2657c448a6b4)
 
+## Responsiveness
+
+Responsive design working in mobile, tablet and desktop
+
+### Mobile
+
+![Screenshot 2024-03-13 at 16 22 25](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/3bfeef27-737a-43b0-a47b-78cb7097c055)
+
+### Tablet
+
+![Screenshot 2024-03-13 at 16 22 40](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/ba42c5cb-b297-4b1b-9004-db8d170d79fc)
+
+### Desktop
+
+![Screenshot 2024-03-13 at 16 22 52](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/37508989-8540-40e2-b344-eefff0ec8780)
