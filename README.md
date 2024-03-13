@@ -6,7 +6,7 @@
 3. [Stack](#stack)
 4. [React Hook Form](#react-hook-form)
 5. [Local Storage](#local-storage)
-6. [Atomic approach](#atomic-aproach)
+6. [Atomic approach](#atomic-approach)
 7. [Testing](#testing)
 
 ## Getting Started
