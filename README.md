@@ -41,7 +41,7 @@ On completion, the data gets console.log and a 'Thank you!' message gets render 
 ## Stack
 
 <ul>
-  <li><Next.js</li>
+  <li>Next.js</li>
   <li>Typescript</li>
   <li>Tailwind</li>
   <li>React Hook Form</li>
