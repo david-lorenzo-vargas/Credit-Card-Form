@@ -8,6 +8,7 @@
 5. [Local Storage](#local-storage)
 6. [Atomic approach](#atomic-approach)
 7. [Testing](#testing)
+8. [Accessibility](#accessibility)
 
 ## Getting Started
 
@@ -89,3 +90,12 @@ Atomic approach has been used for structuring and ordering the componets separat
 Jest and React Testing Library have been used for testing. I have added testing to some components but, as further implementation, it would be necessary to add more unit and integration testing for other functionalities and components.
 
 For running tests: `npm run test`
+
+## Accessibility
+
+HTML native tags have been used as well as WAI-ARIA roles and aria labels for acceissibility. This would help web reading tools to navigate through the form.
+
+An 93 overall scored achieved in Lighthouse tool
+
+![Screenshot 2024-03-13 at 15 45 59](https://github.com/david-lorenzo-vargas/Credit-Card-Form/assets/72414745/a442cdf3-adec-4ded-aa5b-2657c448a6b4)
+
