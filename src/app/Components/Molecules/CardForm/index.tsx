@@ -7,6 +7,7 @@ import Button from "../../Atoms/Button";
 import Input from "../../Atoms/Input";
 import Card from "../../Atoms/Card";
 import CheckBox from "../../Atoms/CheckBox";
+import { cardRegex, cvvRegex, monthRegex, nameRegex, yearRegex } from "../../../../../Util/regex";
 
 const CardForm = (): ReactElement => {
   const {
@@ -24,7 +25,8 @@ const CardForm = (): ReactElement => {
       cardYear: "",
       cardCvv: "",
       agreed: false,
-    }
+    },
+    mode: 'onChange',
   });
 
   const [rememberMe, setRememberMe] = useState<boolean>(false);
@@ -111,8 +113,15 @@ const CardForm = (): ReactElement => {
                     inputName="cardNumber"
                     register={register("cardNumber", {
                       required: true,
-                      pattern: /^\d{16}$/
+                      validate: (value: string) => {
+                        if (!cardRegex.test(value)) {
+                          return "Sorry card must a 16 digit number"
+                        }
+
+                        return true;
+                      }
                     })}
+                    errorMessage={formState.errors.cardNumber?.message}
                   />
                 </div>
                 <div className="mb-1">
@@ -121,9 +130,16 @@ const CardForm = (): ReactElement => {
                     placeholder="Name on card"
                     inputName="cardName"
                     register={register("cardName", {
-                      required: "Sorry numbers and specials characters are not allowed",
-                      pattern: /^[a-zA-Z\s]{1,}$/
+                      required: true,
+                      validate: (value: string) => {
+                        if (!nameRegex.test(value)) {
+                          return "Sorry numbers and specials characters are not allowed"
+                        }
+
+                        return true;
+                      }
                     })}
+                    errorMessage={formState.errors.cardName?.message}
                   />
                 </div>
                 <div className="flex flex-row items-center justify-between mb-5">
@@ -134,10 +150,18 @@ const CardForm = (): ReactElement => {
                         placeholder="MM"
                         inputName="cardMonth"
                         type="number"
+                        max="12"
                         register={register("cardMonth", {
-                          required: "Sorry you must enter a valid month",
-                          pattern: /^\d{1,12}$/
+                          required: true,
+                          validate: (value: string) => {
+                            if (!monthRegex.test(value)) {
+                              return "Invalid month"
+                            }
+
+                            return true
+                          }
                         })}
+                        errorMessage={formState.errors.cardMonth?.message}
                       />
                     </div>
                     <div>
@@ -146,10 +170,18 @@ const CardForm = (): ReactElement => {
                         placeholder="YYYY"
                         inputName="cardYear"
                         type="number"
+                        min={new Date().getFullYear().toString()}
                         register={register("cardYear", {
-                          required: "Sorry you must enter a valid year",
-                          pattern: /^[0-2][0-9]{3}$/
+                          required: true,
+                          validate: (value: string) => {
+                            if (value.length >= 4 && (!yearRegex.test(value) || value < new Date().getFullYear().toString())) {
+                              return "Invalid year"
+                            }
+
+                            return true;
+                          }
                         })}
+                        errorMessage={formState.errors.cardYear?.message}
                       />
                     </div>
                   </div>
@@ -159,10 +191,19 @@ const CardForm = (): ReactElement => {
                       placeholder="CVV"
                       inputName="CVV"
                       type="number"
+                      max="999"
                       register={register("cardCvv", {
                         required: true,
-                        pattern: /^\d{3}$/
+                        validate: (value: string) => {
+                          if (value.length > 3 && !cvvRegex.test(value)) {
+                            return "Invalid CVV"
+                          }
+
+                          return true;
+                        }
                       })}
+
+                      errorMessage={formState.errors.cardCvv?.message}
                     />
                   </div>
                 </div>

@@ -7,6 +7,9 @@ const Input = ({
   label,
   type ='text',
   register,
+  errorMessage,
+  max,
+  min,
 }: Props): ReactElement => {
   return (
     <div>
@@ -20,8 +23,17 @@ const Input = ({
         placeholder={placeholder}
         name={inputName}
         type={type}
+        max={max}
+        min={min}
         {...register}
       />
+      <div className="h-3">
+        {errorMessage && (
+          <span className="text-sm text-cancelRed">
+            {errorMessage}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
@@ -32,6 +44,9 @@ interface Props {
   label: string;
   type?: HTMLInputTypeAttribute,
   register?: UseFormRegisterReturn,
+  errorMessage?: string;
+  max?: string;
+  min?: string;
 }
 
 export default Input;

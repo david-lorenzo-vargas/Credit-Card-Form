@@ -12,6 +12,7 @@ const config: Config = {
         blue: '#0000e1',
         acceptGreen: '#2cb519',
         lightGray: '#d9d9d9',
+        cancelRed: '#FF5733',
       },
       spacing: {
         "85P": '85%'
